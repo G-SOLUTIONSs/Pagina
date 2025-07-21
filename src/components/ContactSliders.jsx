@@ -12,7 +12,6 @@ const ContactSliders = () => {
 
   return (
     <>
-      {/* Botón flotante */}
       {!formOpen && (
         <button
           onClick={() => setFormOpen(true)}
@@ -24,7 +23,6 @@ const ContactSliders = () => {
         </button>
       )}
 
-      {/* Overlay */}
       {formOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-0 z-10"
@@ -32,7 +30,6 @@ const ContactSliders = () => {
         ></div>
       )}
 
-      {/* Formulario flotante */}
       <div
         ref={formRef}
         className={`fixed right-0 top-20 bottom-4 w-[350px] md:w-[400px] max-w-full bg-form_d shadow-xl z-30 p-6 overflow-y-auto rounded-l-2xl transition-transform duration-500 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] ${formOpen ? 'translate-x-0' : 'translate-x-full'}`}
@@ -46,30 +43,31 @@ const ContactSliders = () => {
 
         <form
           className="space-y-5"
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-            e.target.reset();
-            setFormOpen(false);
-          }}
+          action="https://formsubmit.co/oyael017@gmail.com"  // 👈 CAMBIA esto por tu correo
+          method="POST"
+          onSubmit={() => setFormOpen(false)}
         >
+          {/* Evita el captcha y redirige después del envío */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://tusitio.com/gracias" /> {/* opcional */}
+
           <div className="relative">
-            <input type="text" required placeholder=" " className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c" />
+            <input type="text" name="nombre" required placeholder=" " className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c" />
             <label className="absolute left-4 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-rojo_c">Nombre completo</label>
           </div>
 
           <div className="relative">
-            <input type="email" required placeholder=" " className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c" />
+            <input type="email" name="correo" required placeholder=" " className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c" />
             <label className="absolute left-4 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-rojo_c">Correo electrónico</label>
           </div>
 
           <div className="relative">
-            <input type="tel" placeholder=" " className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c" />
+            <input type="tel" name="telefono" placeholder=" " className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c" />
             <label className="absolute left-4 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-rojo_c">Teléfono (opcional)</label>
           </div>
 
           <div className="relative">
-            <select className="w-full px-4 py-3 border border-red rounded-lg bg-white focus:outline-none focus:border-rojo_c">
+            <select name="servicio" required className="w-full px-4 py-3 border border-red rounded-lg bg-white focus:outline-none focus:border-rojo_c">
               <option value="" disabled hidden>Servicio de interés</option>
               <option value="web">Desarrollo Web</option>
               <option value="cloud">Infraestructura Cloud</option>
@@ -80,12 +78,12 @@ const ContactSliders = () => {
           </div>
 
           <div className="relative">
-            <textarea rows="4" placeholder=" " required className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c"></textarea>
+            <textarea name="mensaje" rows="4" placeholder=" " required className="peer w-full px-4 pt-5 pb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-rojo_c"></textarea>
             <label className="absolute left-4 top-2 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-rojo_c">Cuéntanos sobre tu proyecto</label>
           </div>
 
           <div className="flex items-center">
-            <input type="checkbox" id="privacy" className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-rojo_f" />
+            <input type="checkbox" id="privacy" name="privacidad" className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-rojo_f" required />
             <label htmlFor="privacy" className="ml-2 text-sm text-gray-600">Acepto la política de privacidad</label>
           </div>
 
