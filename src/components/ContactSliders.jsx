@@ -43,7 +43,7 @@ const ContactSliders = () => {
 
         <form
           className="space-y-5"
-          action="https://formsubmit.co/oyael017@gmail.com"  // 👈 CAMBIA esto por tu correo
+          action="https://formsubmit.co/oyael017@gmail.com" 
           method="POST"
           onSubmit={() => setFormOpen(false)}
         >
