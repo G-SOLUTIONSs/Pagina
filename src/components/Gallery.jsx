@@ -1,6 +1,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import galleryImage_a from '../assets/a_gallery.jpg'; /*commit-img-1: correcion de img para produccion */
+import galleryImage_b from '../assets/b_gallery.jpg'; /*commit-img-1: correcion de img para produccion */
+import galleryImage_c from '../assets/c_gallery.jpg'; /*commit-img-1: correcion de img para produccion */
+
 
 const Gallery = () => {
   return (
@@ -18,7 +22,7 @@ const Gallery = () => {
             <div
               className="absolute inset-0 bg-cover bg-center opacity-100"
               style={{
-                backgroundImage: "url('/src/assets/pexels-divinetechygirl-1181354.jpg')"
+                backgroundImage: `url(${galleryImage_a})` /*commit-img-1: correcion de img para produccion */
               }}
             ></div>
 
@@ -40,7 +44,7 @@ const Gallery = () => {
             <div
               className="absolute inset-0 bg-cover bg-center opacity-100"
               style={{
-                backgroundImage: "url('/src/assets/pexels-shkrabaanthony-5475750.jpg')"
+                backgroundImage: `url(${galleryImage_b})` /*commit-img-1: correcion de img para produccion */
               }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-black opacity-60"></div>
@@ -58,7 +62,7 @@ const Gallery = () => {
             <div
               className="absolute inset-0 bg-cover bg-center opacity-100"
               style={{
-                backgroundImage: "url('/src/assets/pexels-pixabay-207580.jpg')"
+                backgroundImage: `url(${galleryImage_c})` /*commit-img-1: correcion de img para produccion */
               }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-black opacity-50"></div>

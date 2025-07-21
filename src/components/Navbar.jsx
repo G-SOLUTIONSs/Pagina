@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import logo from '../assets/logo.png';
+/* meter_img-1: primero se importa la img aca arriba */
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,7 +10,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo + texto */}
         <div className="flex items-center gap-3">
-          <img src="./src/assets/logo.png" alt="Logo" className="w-10 h-10" />
+          <img src={logo} alt="Logo" className="w-10 h-10" />{/* meter_img-2: para meter img se tiene que usar la siguiente linea */}
           <span className="text-red-700 font-bold text-xl">GSolutions</span>
         </div>
 
